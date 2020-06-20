@@ -1,0 +1,344 @@
+﻿<Window x:Class="Rent_a_Bicycle_App.W_rent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rent_a_Bicycle_App"
+        xmlns:Resx="clr-namespace:Rent_a_Bicycle_App.Properties"
+        mc:Ignorable="d"
+        
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        
+        Title="{x:Static Resx:Resources.appName}" Height="750" Width="719.2" Icon="bicycle_icon.ico" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF314252">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1" />
+            <RowDefinition Height="120*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="120*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Background="#FF1F1E44" Height="83" Width="100" >
+            <Image HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="80" Margin="10,10,0,0" Source="City Bike Logo.png" Stretch="Fill"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Height="83" VerticalAlignment="Top" Margin="100,0,0,0" Background="#FF1F1E44">
+
+            <StackPanel Orientation="Vertical" Width="325" Margin="0,0,0,0.2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="311">
+                    <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="AntiqueWhite" Margin="105,10,0,0" Height="30" Text="{x:Static Resx:Resources.selectLanguage}" />
+                    <ComboBox x:Name="CoBx_Languages" Width="98" Height="22" HorizontalAlignment="Stretch" Margin="10,0" SelectionChanged="CoBx_Languages_SelectionChanged" />
+                </StackPanel>
+
+                <TextBlock FontSize="25" FontWeight="Bold" Foreground="#FFF9F4F4" Text="{x:Static Resx:Resources.rentingABicycle}" Margin="0,0,39.4,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="286" Margin="0,5,0,0.2">
+                <TextBlock Name="Tbk_Time" TextWrapping="Wrap" Text="10.10" FontSize="15" FontWeight="Bold" Foreground="AntiqueWhite"  HorizontalAlignment="Center" />
+                <StackPanel Orientation="Horizontal" Height="45" Margin="15,10,20,0">
+                    <TextBlock x:Name="Tbk_Day" TextWrapping="Wrap" Text="Thu" FontSize="28" Foreground="AntiqueWhite" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,0,3" FontStyle="Italic" Width="61" />
+                    <TextBlock x:Name="Tbk_Date" TextWrapping="Wrap" Text="Apr 26, 2020" FontSize="25" Foreground="AntiqueWhite" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,6" Width="160" />
+
+                </StackPanel>
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+
+
+        <!--<StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Width="175" HorizontalAlignment="Left" Margin="0,88,0,10">
+            <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.textSelect}" FontSize="12" Foreground="AntiqueWhite" Margin="10,10,0,0" Height="50"/>
+            <StackPanel Orientation="Horizontal" Height="25" Margin="0,10,0,0">
+                <TextBlock Text="{x:Static Resx:Resources.statusLeftSide}" FontSize="15" Width="68" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,0" Foreground="#FFFBF9F9" />
+                <ComboBox Name="CoBx_Status" Width="87" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right" SelectedItem="{Binding status}" SelectionChanged="CoBx_Status_SelectionChanged" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0,10,0,0">
+                <TextBlock FontSize="15" Width="68" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,0" Foreground="#FFFBF9F9" Text="{x:Static Resx:Resources.categoryLeftSide}" />
+                <ComboBox Name="CoBx_Categories" Width="50" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{Binding category}" SelectionChanged="CoBx_Category_SelectionChanged" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0,10,0,0">
+                <TextBlock FontSize="15" Width="68" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,0" Foreground="#FFFBF9F9" Text="{x:Static Resx:Resources.sizeLeftSide}" />
+                <ComboBox x:Name="CoBx_Sizes" Width="50" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding size}" SelectionChanged="CoBx_Sizes_SelectionChanged" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="20" Margin="0,10,0,0">
+                <TextBlock FontSize="15" Width="68" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,0" Foreground="#FFFBF9F9" Text="{x:Static Resx:Resources.gearLeftSide}" />
+                <ComboBox x:Name="CoBx_Gears" Width="50" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding gear}" SelectionChanged="CoBx_Gears_SelectionChanged" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="25" Margin="0,10,0,0">
+                <TextBlock FontSize="15" Width="68" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,0" Foreground="#FFFBF9F9" Text="{x:Static Resx:Resources.brandLeftSide}" />
+                <ComboBox x:Name="CoBx_Brands" Width="87" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding brandName}" SelectionChanged="CoBx_Brands_SelectionChanged" />
+            </StackPanel>
+
+        </StackPanel>-->
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="174" Margin="20,111,0,10" >
+            <StackPanel Orientation="Horizontal" Height="34">
+                <Button Name="Btn_Male" Content="M" Width="40" Margin="0,0" Style="{StaticResource ResourceKey=Btn_Ctl}" VerticalAlignment="Top" Click="Btn_Male_Click"/>
+
+                <Button Name="Btn_Female" Content="F" Width="40" Margin="4,0" Style="{StaticResource ResourceKey=Btn_Ctl}" Click="Btn_Female_Click"/>
+                <Button Name="Btn_Child" Content="CH" Width="40" Margin="0,0" Style="{StaticResource ResourceKey=Btn_Ctl}" Click="Btn_Child_Click"/>
+                <Button Name="Btn_All" Content="All" Width="40" Margin="4,0" Style="{StaticResource ResourceKey=Btn_Ctl}" Click="Btn_All_Click"/>
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.textFilter}" HorizontalAlignment="Left" FontSize="10" Foreground="Gray" FontStyle="Italic" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="20" Margin="0,05,0,0" Width="174">
+
+                <TextBox Name="Tbx_FilterId" HorizontalAlignment="Left" Width="141" FontSize="15" Margin="0,0" Foreground="Black" TextChanged="Tbx_filter_TextChanged" />
+                <TextBlock Text="{Binding Items.Count, ElementName=Lbx_Bicycles}" FontSize="15" FontWeight="Bold" Width="24" TextWrapping="Wrap" HorizontalAlignment="Right" Margin="10,0,0,0" Foreground="#FFFBF9F9" />
+            </StackPanel>
+
+            <ListBox x:Name="Lbx_Bicycles" Margin="0,5,0,0" Height="398">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Margin="0,4">
+                            <Run Text="{Binding brandName}" />
+                            <Run Text=" "/>
+                            <!--<Run Text="Cat:" />-->
+                            <Run Text="{Binding category}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding size}" />
+                            <!--<Run Text="''" />-->
+                            <Run Text=" " />
+                            <Run Text="{Binding gear}" />
+                            <LineBreak />
+                            <Run Text="{Binding bicycleId}" FontWeight="Bold" />
+                            <Run Text=" " />                                                     <Run Text="{Binding status}" />
+
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Orientation="Horizontal" Width="174" Height="77" Margin="0,10,0,0" >
+                <Grid Width="174" Margin="0,40,0,0" >
+                    <Button Name="Btn_Del" Content="-" Width="35" Margin="0,0" Style="{StaticResource ResourceKey=Btn_Ctl}" Click="Btn_Del_Click" ToolTip = "{x:Static Resx:Resources.deleteBicycle}"/>
+                    <Button Name="Btn_Add" Content="+" Width="35" Margin="135,0,0,0" Style="{StaticResource ResourceKey=Btn_Ctl}" Click="Btn_Add_Click" ToolTip="{x:Static Resx:Resources.addBicycle}" />
+                </Grid>
+
+            </StackPanel>
+
+        </StackPanel>
+
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="237" Margin="230.2,110.2,0,9.8" DataContext="{Binding ElementName=Lbx_Bicycles, Path=SelectedItem}"
+                    >
+            <Grid HorizontalAlignment="Stretch" Margin="0,0,-0.2,15" >
+                <Border BorderThickness="2" BorderBrush="LightBlue">
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.selectBicycle}" Width="233" Foreground="#FFFDF9F9" VerticalAlignment="Center" FontWeight="Bold" Margin="0,2.4,0,3.2" />
+                </Border>
+
+                <!--<TextBlock Name="Tbx_BrandAndSize" Text="{Binding brandAndSize}" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Foreground="#FFFDF9F9"  />-->
+
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.brandName}" Width="85" Foreground="#FFFDF9F9" FontSize="12" VerticalAlignment="Center" />
+                <TextBox Text="{Binding brandName}" TextWrapping="Wrap" Width="125" FontSize="14" />
+
+
+
+            </StackPanel>
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.status}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <TextBox Text="{Binding status}" TextWrapping="Wrap" Width="125" FontSize="15"  />
+            </StackPanel>-->
+
+            <StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.bicycleId}" Width="85" Foreground="#FFFDF9F9" FontSize="12" VerticalAlignment="Center"  />
+                <TextBox Name="Tbx_BicycleId" Text="{Binding bicycleId}" TextWrapping="Wrap" Width="125" FontSize="14" FontStyle="Italic" FontWeight="Bold" />
+                <!--<TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.size}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <TextBox Text="{Binding size}" TextWrapping="Wrap" Width="86" FontSize="15" />
+                <TextBlock Text="inches" FontSize="12" Foreground="#FFFDF9F9" Margin="5,0" VerticalAlignment="Center" />-->
+
+
+
+            </StackPanel>
+
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.gear}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <TextBox Text="{Binding gear}" TextWrapping="Wrap" Width="86" FontSize="15" />
+                <TextBlock Text="nos." FontSize="12" Foreground="#FFFDF9F9" Margin="3,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" />
+            </StackPanel>-->
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.gender}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <ComboBox x:Name="CoBx_Categories_Add" SelectedItem="{Binding category}" Width="86" FontSize="15" />
+            </StackPanel>-->
+
+            <StackPanel >
+                <!--<Border  BorderThickness="2" CornerRadius="6" BorderBrush="Black" Background="LightGray" >-->
+                <StackPanel Orientation="Horizontal" Height="25" Margin="0,35" >
+                    <Border BorderThickness="2" BorderBrush="LightBlue" Margin="0,0,0,-14">
+                        <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.customerDetail}" Width="233" Foreground="#FFFDF9F9" VerticalAlignment="Center" FontWeight="Bold" Margin="0,2.4,0,3.2" />
+                    </Border>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0" DataContext="{Binding ElementName=Lbx_Customers, Path=SelectedItem}" >
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.firstName}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <TextBox Name="Tbx_firstName" Text="{Binding firstName}" TextWrapping="Wrap" Width="125" Height="20" TextAlignment="Right" FontSize="14" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10" DataContext="{Binding ElementName=Lbx_Customers, Path=SelectedItem}" >
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.lastName}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <TextBox Name="Tbx_lastName" Text="{Binding lastName}" TextWrapping="Wrap" Width="125" Height="20" TextAlignment="Right" FontSize="14" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,8" DataContext="{Binding ElementName=Lbx_Customers, Path=SelectedItem}" >
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.customerId}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <TextBox Name="Tbx_CustomerId" Text="{Binding customerId}" TextWrapping="Wrap" Width="125" Height="20" TextAlignment="Right" FontSize="14" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5" >
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.hiringDate}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <DatePicker Name="DtPicker_HiringDate" Width="128" FontSize="14" Text="{Binding hiringDate}" />
+                </StackPanel>
+
+                <!--<StackPanel Orientation="Horizontal" Margin="0,5" >
+                    <TextBlock TextWrapping="Wrap" Text="No. of hours" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <TextBox Name="Tbx_HiringNoOfHours" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14"  />-->
+
+                <!--</StackPanel>-->
+
+                <StackPanel Orientation="Horizontal" Margin="0,5" >
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.startTime}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <TextBox Name="Tbx_StartTime" Text="{Binding startTime}" TextWrapping="Wrap" Width="86" FontSize="14"  />
+                    <!--<TextBox Text=":" TextWrapping="Wrap" Width="7" FontSize="15" TextAlignment="Center"  />
+                    <TextBox Text="{Binding time}" TextWrapping="Wrap" Width="40" FontSize="14"  />
+                    <TextBlock TextWrapping="Wrap" Text="hh:mm" Margin="3,0" Foreground="#FFFDF9F9" FontSize="12" />-->
+                </StackPanel>
+
+                <!--<Border/>-->
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,15" Height="25" >
+                <Border BorderBrush="LightBlue" BorderThickness="2">
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.paymentDetail}" Width="233" Foreground="#FFFDF9F9" VerticalAlignment="Center" FontWeight="Bold" />
+
+                </Border>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.tariff}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <TextBox Name="Tbx_Tariff" Text="{Binding tariff}" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14" />
+                <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="3,0" Foreground="#FFFDF9F9" />
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5" >
+
+            </StackPanel>
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="Sub-Total" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <TextBox Name="Tbx_SubTotal" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14" TextChanged="Tbx_SubTotal_TextChanged" />
+                <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="3,0" Foreground="#FFFDF9F9" />
+            </StackPanel>-->
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,5" >-->
+            <!--<TextBlock TextWrapping="Wrap" Text="Total" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />-->
+            <!--<TextBox Name="Tbx_Total" Text="{Binding total}" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="15" />
+                <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="3,0" Foreground="#FFFDF9F9" />
+            </StackPanel>-->
+
+            <!--<StackPanel Orientation="Horizontal" Margin="0,5" >
+                <TextBlock TextWrapping="Wrap" Text="Paid" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                <TextBox Name="Tbx_Paid" Text="{Binding paid}" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14" />
+                <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="3,0" Foreground="#FFFDF9F9" />
+            </StackPanel>-->
+
+
+
+
+            <StackPanel Height="40" Margin="0,10">
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="467.2,153.2,29.8,-0.2" Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Height="22" Margin="0,0,-0.2,0" DataContext="{Binding ElementName=Lbx_Bicycles, Path=SelectedItem}" >
+                <TextBlock TextWrapping="Wrap" Text="category" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" Margin="0,0" />
+                <ComboBox Name="CoBx_Categories_Add" SelectedItem="{Binding category}" Width="86" FontSize="14" Height="20" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="22" Margin="0,10,-0.2,0" DataContext="{Binding ElementName=Lbx_Bicycles, Path=SelectedItem}" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.gear}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" Margin="0,0" />
+                <TextBox Text="{Binding gear}" TextWrapping="Wrap" Width="86" FontSize="14" Margin="0,0,5,0" Height="20"/>
+                <TextBlock Text="nos." FontSize="12" Foreground="#FFFDF9F9" Margin="3,0" VerticalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="22" Margin="0,10,-0.2,0" DataContext="{Binding ElementName=Lbx_Bicycles, Path=SelectedItem}" >
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.size}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" Margin="0,0" />
+                <TextBox Text="{Binding size}" TextWrapping="Wrap" Width="86" FontSize="14" Margin="0,0,5,0" Height="20"/>
+                <!--<TextBlock Text="nos." FontSize="12" Foreground="#FFFDF9F9" Margin="3,0" VerticalAlignment="Center" />-->
+            </StackPanel >
+
+            <StackPanel Orientation="Vertical" Height="169" Margin="0,32">
+                <TextBlock Text="Please enter customer name to filter" FontSize="11" Foreground="Gray" FontStyle="Italic" />
+                <StackPanel Orientation="Horizontal" Height="34">
+                    <TextBox Name="Tbx_filterCustomer" TextWrapping="Wrap" Width="146" Height="34" FontSize="14" Foreground="Black" TextChanged="Tbx_filterCustomer_TextChanged" />
+                    <TextBlock Text="{Binding ElementName=Lbx_Customers, Path=Items.Count}" FontSize="14" FontWeight="Bold" Width="20" VerticalAlignment="Center" Margin="5,0" Foreground="#FFFBF9F9" />
+                    <Button Name="Btn_AddCustomer" Content="+" Width="28" Style="{StaticResource ResourceKey=Btn_Ctl}" Margin="0,0" Click="Btn_AddCustomer_Click" ToolTip="Click to add a new customer"/>
+                </StackPanel>
+
+                <StackPanel Height="75" Margin="0,5">
+                    <ListBox Name="Lbx_Customers" Height="111">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding firstName}" />
+                                    <Run Text=" " />
+                                    <Run Text="{Binding lastName}" />
+                                    <LineBreak />
+                                    <Run Text="{Binding customerId}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Height="149" Margin="0,58,0,0">
+                <StackPanel Orientation="Horizontal" DataContext="{Binding ElementName=Lbx_Bicycles, Path=SelectedItem}" >
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.deposit}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" Margin="0,0" />
+                    <TextBox Name="Tbx_Deposit" Text="{Binding deposit}" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14" />
+                    <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="5,0" Foreground="#FFFDF9F9" />
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,18">
+                    <TextBlock TextWrapping="Wrap" Text="{x:Static Resx:Resources.paidAmount}" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" Margin="0,0" />
+                    <TextBox Name="Tbx_Paid" Text="{Binding paid}" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14"  />
+                    <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="5,0" Foreground="#FFFDF9F9" />
+
+                </StackPanel>
+
+                <!--<StackPanel Orientation="Horizontal" Margin="0,-8" >
+                    <TextBlock TextWrapping="Wrap" Text="Balance" Width="85" Foreground="#FFFDF9F9" VerticalAlignment="Center" />
+                    <TextBox Name="Tbx_Balance" Text="{Binding balance}" TextWrapping="Wrap" Width="86" Height="20" TextAlignment="Right" FontSize="14" TextChanged="Tbx_Balance_TextChanged_1" />
+                    <TextBlock Text="€" FontSize="12" VerticalAlignment="Center" Margin="5,0" Foreground="#FFFDF9F9" />
+                </StackPanel>-->
+
+                <Button Style="{StaticResource ResourceKey=Btn_Ctl}" VerticalContentAlignment="Center" Margin="0,28,21.2,23"  Click="Btn_Hire_Click" Content="{x:Static Resx:Resources.hireButton}" />
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

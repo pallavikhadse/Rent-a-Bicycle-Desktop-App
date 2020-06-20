@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<ArrayOfBooking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Booking>
+    <bookingId>956453711</bookingId>
+    <bicycleId>1155784955</bicycleId>
+    <customerId>1269488654</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>680778995</bookingId>
+    <bicycleId>1987674198</bicycleId>
+    <customerId>1170405837</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>537510361</bookingId>
+    <bicycleId>499047040</bicycleId>
+    <customerId>48746875</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>619975600</bookingId>
+    <bicycleId>1969140126</bicycleId>
+    <customerId>687304224</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>447304756</bookingId>
+    <bicycleId>1999183954</bicycleId>
+    <customerId>1013959478</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>1473855221</bookingId>
+    <bicycleId>364931608</bicycleId>
+    <customerId>424260266</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>1050350276</bookingId>
+    <bicycleId>2104322686</bicycleId>
+    <customerId>1018757423</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+  <Booking>
+    <bookingId>952071172</bookingId>
+    <bicycleId>1448679531</bicycleId>
+    <customerId>252606146</customerId>
+    <hiringDate>2020-05-07T00:00:00</hiringDate>
+    <startTime />
+    <returnTime>0001-01-01T00:00:00</returnTime>
+    <status>Hired</status>
+    <depositPaidAmount>0</depositPaidAmount>
+  </Booking>
+</ArrayOfBooking>
